@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>We Care Your Vehicle</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background:transparent;
+            background-image:none;
+            border-color:transparent;
+            box-shadow:none;
+        }
+
+        .carousel-inner.onebyone-carosel { margin: auto; width: 90%; }
+        .onebyone-carosel .active.left { left: -33.33%; }
+        .onebyone-carosel .active.right { left: 33.33%; }
+        .onebyone-carosel .next { left: 33.33%; }
+        .onebyone-carosel .prev { left: -33.33%; }
+
+    </style>
+</head>
+
+<body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myCarousel').carousel({
+            interval: 10000
+        })
+        $('.fdi-Carousel .item').each(function () {
+            var next = $(this).next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+
+            if (next.next().length > 0) {
+                next.next().children(':first-child').clone().appendTo($(this));
+            }
+            else {
+                $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+            }
+        });
+    });
+</script>
+
+<br/>
+<br/>
+<div style="min-width: 150px;">
+    <div class="container">
+
+            <h2 style="color:white;">Select User Type</h2>
+
+        <div class="row" style="background:transparent; background-image:none; border-color:transparent; box-shadow:none;">
+            <div class="span12" style="background:transparent; background-image:none; border-color:transparent; box-shadow:none;">
+                <div class="well" style="background:transparent; background-image:none; border-color:transparent; box-shadow:none;">
+                    <div id="myCarousel" class="carousel fdi-Carousel slide" style="background:transparent; background-image:none; border-color:transparent; box-shadow:none;">
+                        <!-- Carousel items -->
+                        <div class="carousel fdi-Carousel slide" id="eventCarousel" data-interval="0" style="background:transparent; background-image:none; border-color:transparent; box-shadow:none;">
+                            <div class="carousel-inner onebyone-carosel" style="background:transparent; background-image:none; border-color:transparent; box-shadow:none;">
+                                <div class="item active">
+                                    <div class="col-md-4">
+                                        <a href="/ipReg" target="iframe_01"><img src="images/Picture1.png" class="img-responsive center-block"/></a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="col-md-4">
+                                        <a href="/iaReg" target="iframe_01"><img src="images/Picture2.png" class="img-responsive center-block"/></a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="col-md-4">
+                                        <a href="/emReg" target="iframe_01"><img src="images/Picture3.png" class="img-responsive center-block"/></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <a class="left carousel-control" href="#eventCarousel" data-slide="prev"></a>
+                            <a class="right carousel-control" href="#eventCarousel" data-slide="next"></a>
+                        </div>
+                        <!--/carousel-inner-->
+                    </div><!--/myCarousel-->
+                </div><!--/well-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

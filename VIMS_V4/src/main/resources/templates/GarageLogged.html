@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Garage</title>
+
+    <style type="text/css">
+
+        h2{
+            color: coral;
+        }
+        a:hover{
+            color: white;
+        }
+        a{
+            color: greenyellow;
+        }
+        </style>
+</head>
+<body>
+<h2 th:text="'Hello '+${#authentication.getName()}"></h2>
+
+<h2><a href="onComingV.html" th:href="@{http://localhost:8080/vListGarage(user=${#authentication.getName()})}">Watch On Coming Vehicles </a></h2>
+<h2><a href="inspectReportForm.html" th:href="@{http://localhost:8080/inspectReport(user=${#authentication.getName()})}">Make inspection Report </a></h2>
+</body>
+</html>
